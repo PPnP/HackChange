@@ -32,7 +32,7 @@ class Geocoder(object):
         else:
             r = r.json()
             pos = r['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos']
-            coords = tuple(pos.split())
+            coords = list(reversed(pos.split()))
         return coords
 
 

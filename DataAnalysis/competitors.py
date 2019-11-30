@@ -9,7 +9,7 @@ competitors = area.loc[area['Название пункта приема/выда
 
 coords = dict()
 for index, row in competitors.iterrows():
-    coords[row['Адрес пункта приема/выдачи']] = [str(row['Долгота']), str(row['Широта'])]
+    coords[row['Адрес пункта приема/выдачи']] = [str(row['Широта']), str(row['Долгота'])]
 
 with open('data/competitors.json', 'w') as output:
     json.dump(coords, output)
