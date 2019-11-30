@@ -4,13 +4,17 @@
 
 ## Technology stack
 
+#### Data analysis
+- pandas
+- sklearn
+
 #### Backend
-- Python3
-- Flask + addons
+- python3
+- flask + addons
 - MVC pattern
 
 #### Frontend
-- HTML5 + CSS3
+- HTML5 + CSS3 + JS
 - Jinja2
 
 ## Launch instruction
