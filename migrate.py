@@ -1,4 +1,4 @@
-from app.api.models.locker import Locker
+from app.api.models.user import Locker
 
 
 Locker.drop_table()

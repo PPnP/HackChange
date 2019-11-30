@@ -22,7 +22,8 @@ class Geocoder(object):
         with open('data/coords.json', 'w') as output:
             json.dump(coords, output)
 
-    def processing(self, r):
+    @staticmethod
+    def processing(r):
         try:
             r.json()
         except json.decoder.JSONDecodeError:
