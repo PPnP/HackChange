@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 import json
+from config import apikey
 
 
 class Geocoder(object):
@@ -9,7 +10,7 @@ class Geocoder(object):
     main_url = 'https://geocode-maps.yandex.ru/1.x/'
     params = {
         'geocoder': '',
-        'apikey': 'ce89209d-a0f7-41ce-bde7-26d2aeab3269',
+        'apikey': apikey,
         'format': 'json'
     }
 
