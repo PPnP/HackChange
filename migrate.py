@@ -1,5 +1,5 @@
-from app.api.models.user import Locker
+from app.api.models.user import User
 
 
-Locker.drop_table()
-Locker.create_table()
+User.drop_table()
+User.create_table()
