@@ -6,5 +6,11 @@
 {% endblock head %}
 
 {% block content %}
-<div id="map" style="width: 100vw; height: 100vw"></div>
+<div id="map" style="width: 100vw; height: 100vh"></div>
+<ul class="map-legend">
+    <li><span style="color:red">Красный</span> - нет постамата и нет выдачи на кассе</li>
+    <li><span style="color:#ffd500">Желтый</span> - нет постамата или нет выдачи на кассе; есть постамат и есть выдача на кассе</li>
+    <li><span style="color:green">Зеленый</span> - стоит установить постамат</li>
+    <li><span style="color:blue">Синий</span> - стоит установить выдачу на кассе</li>
+</ul>
 {% endblock content %}

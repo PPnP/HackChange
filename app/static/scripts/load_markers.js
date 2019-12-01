@@ -16,9 +16,7 @@ ymaps.ready(init);
 function getMarkerColor(id) {
     if (id == "00") {
         return 'islands#redIcon'
-    } else if (id == "01" || id == "10") {
-        return 'islands#yellowIcon'
-    } else if (id == "11") {
+    } else if (id == "01" || id == "10" || id == "11") {
         return 'islands#yellowIcon'
     } else if (id == "20") {
         return 'islands#greenIcon'
@@ -46,7 +44,8 @@ function getMarkerInfo(id) {
 function init() {
     let myMap = new ymaps.Map("map", {
         center: [51.5, 36],
-        zoom: 7
+        zoom: 7,
+        bounds: ymaps.util.bounds.fromPoints(coords)
     });
 
     for (var i = 0; i < coords.length; i++) {
