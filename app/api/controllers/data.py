@@ -12,15 +12,15 @@ class DataController(MethodView):
         with open('DataAnalysis/data/top50_cashboxes.json', 'r', encoding='utf-8') as rel_cashboxes:
             cashboxes = json.load(rel_cashboxes)
         postamats_coords = list()
-        for p in postamats.values():
-            postamats_coords.append(p['coords'] + ['20'])
+        for post in postamats.values():
+            postamats_coords.append([post['coordsN']] + [post['coordsS']] + ['20'])
         cashboxes_coords = list()
-        for p in cashboxes.values():
-            cashboxes_coords.append(p['coords'] + ['02'])
+        for cash in cashboxes.values():
+            cashboxes_coords.append([cash['coordsN']] + [cash['coordsS']] + ['02'])
         coords = list()
         for c in data.values():
             coords.append(c)
         coords = json.dumps(coords)
         postamats_coords = json.dumps(postamats_coords)
         cashboxes_coords = json.dumps(cashboxes_coords)
-        return coords, postamats_coords, cashboxes_coords
+        return coords + postamats_coords + cashboxes_coords
