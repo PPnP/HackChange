@@ -15,7 +15,7 @@
 
 #### Frontend
 - HTML5 + CSS3 + JS
-- Jinja2
+- jinja2
 
 ## Launch instruction
 
