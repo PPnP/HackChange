@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="https://api-maps.yandex.ru/2.1/?apikey={{ apikey }}&lang=ru_RU" type="text/javascript">
+</script>
+<script type="text/javascript">
+    // 1. Создаём новый объект XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+
+    // 2. Конфигурируем его: GET-запрос на URL 'phones.json'
+    xhr.open('GET', '/data', false);
+
+    // 3. Отсылаем запрос
+    xhr.send();
+
+    // 4. Если код ответа сервера не 200, то это ошибка
+    if (xhr.status != 200) {
+        // обработать ошибку
+        alert(xhr.status + ': ' + xhr.statusText); // пример вывода: 404: Not Found
+    } else {
+        // вывести результат
+        coords = JSON.parse(xhr.responseText) // responseText -- текст ответа.
+    }
+    // Функция ymaps.ready() будет вызвана, когда
+    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(init);
+    function init() {
+        // Создание карты.
+        var myMap = new ymaps.Map("map", {
+            // Координаты центра карты.
+            // Порядок по умолчанию: «широта, долгота».
+            // Чтобы не определять координаты центра карты вручную,
+            // воспользуйтесь инструментом Определение координат.
+            center: [55.76, 37.64],
+            // Уровень масштабирования. Допустимые значения:
+            // от 0 (весь мир) до 19.
+            zoom: 7
+        });
+
+        for (var i = 0; i < coords.length; i++) {
+            var myPlacemark = new ymaps.Placemark(coords[i], {}, {
+                preset: 'islands#redIcon'
+            });
+            
+            myMap.geoObjects.add(myPlacemark)
+        }
+    }
+</script>
+{% endblock head %}
+
+{% block content %}
+<div id="map" style="width: 600px; height: 400px"></div>
+{% endblock content %}
