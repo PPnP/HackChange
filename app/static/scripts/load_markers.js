@@ -15,13 +15,31 @@ ymaps.ready(init);
 
 function getMarkerColor(id) {
     if (id == "00") {
-        return 'islands#redIcon'
+        return {
+            preset: 'islands#redIcon' 
+        }
     } else if (id == "01") {
-        return 'islands#blueIcon'
+        return {
+            preset: 'islands#blueIcon'
+        }
     } else if (id == "10") {
-        return 'islands#yellowIcon'
+        return {
+            preset: 'islands#yellowIcon'
+        }
     } else if (id == "11") {
-        return 'islands#greenIcon'
+        return {
+            preset: 'islands#greenIcon'
+        }
+    } else if (id == "20") {
+        return {
+            iconLayout: 'default#image',
+            iconImageHref: "/static/images/postamat.png",
+        }
+    } else if (id == "02") {
+        return {
+            iconLayout: 'default#image',
+            iconImageHref: "/static/images/cashbox.png",
+        }
     }
 }
 
@@ -34,7 +52,7 @@ function getMarkerInfo(id) {
         return 'Есть постамат и нет выдачи на кассе'
     } else if (id == "11") {
         return 'Есть постамат и есть выдача на кассе'
-    }
+    } 
 }
 
 function init() {
@@ -47,9 +65,7 @@ function init() {
         var myPlacemark = new ymaps.Placemark(coords[i], {
             hintContent: getMarkerInfo(coords[i][2]),
             balloonContentHeader: getMarkerInfo(coords[i][2])
-        }, {
-            preset: getMarkerColor(coords[i][2])
-        });
+        }, getMarkerColor(coords[i][2]));
     
         myMap.geoObjects.add(myPlacemark)
     }
