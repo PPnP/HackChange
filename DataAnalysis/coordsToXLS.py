@@ -10,8 +10,6 @@ ws = wb.add_sheet('Coords')
 
 i = 0
 for coords in data.values():
-    if i in [407, 370, 214, 356, 357, 259, 390, 244, 293, 388, 324, 412, 261]:
-        continue
     ws.write(i, 0, coords[0])
     ws.write(i, 1, coords[1])
     ws.write(i, 2, 'Пятёрочка #' + str(i + 1))
