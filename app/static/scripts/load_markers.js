@@ -51,12 +51,22 @@ function init() {
     });
 
     for (var i = 0; i < coords.length; i++) {
-        var myPlacemark = new ymaps.Placemark(coords[i], {
-            hintContent: getMarkerInfo(coords[i][2]),
-            balloonContentHeader: getMarkerInfo(coords[i][2])
-        }, {
-            preset: getMarkerColor(coords[i][2])
-        });
+        if (coords[i].length > 3) {
+            var myPlacemark = new ymaps.Placemark(coords[i], {
+                hintContent: getMarkerInfo(coords[i][2]),
+                balloonContentHeader: getMarkerInfo(coords[i][2]),
+                balloonContent: coords[i][3]
+            }, {
+                preset: getMarkerColor(coords[i][2])
+            });
+        } else {
+            var myPlacemark = new ymaps.Placemark(coords[i], {
+                hintContent: getMarkerInfo(coords[i][2]),
+                balloonContentHeader: getMarkerInfo(coords[i][2])
+            }, {
+                preset: getMarkerColor(coords[i][2])
+            });
+        }
 
         myMap.geoObjects.add(myPlacemark)
 

@@ -322,14 +322,15 @@ h1 {
     bottom: 0;
     left: 0;
     max-width: 100%;
-    width: 300px;
+    width: 400px;
+    font-size: 1.25rem;
     background: rgba(255, 255, 255, 0.85);
     padding: 20px;
     color: #000;
     line-height: 1.2
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .map-legend {
         width: calc(100% - 40px)
     }
