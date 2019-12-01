@@ -45,7 +45,8 @@ function init() {
 
     for (var i = 0; i < coords.length; i++) {
         var myPlacemark = new ymaps.Placemark(coords[i], {
-            hintContent: getMarkerInfo(coords[i][2])
+            hintContent: getMarkerInfo(coords[i][2]),
+            balloonContentHeader: getMarkerInfo(coords[i][2])
         }, {
             preset: getMarkerColor(coords[i][2])
         });
