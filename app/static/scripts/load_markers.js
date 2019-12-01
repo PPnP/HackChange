@@ -1,3 +1,5 @@
+var myMap;
+
 var xhr = new XMLHttpRequest();
 xhr.open('GET', '/data', false);
 xhr.send();
@@ -25,6 +27,7 @@ function getMarkerColor(id) {
     }
 }
 
+// Возвращает лейбл для точки
 function getMarkerInfo(id) {
     if (id == "00") {
         return 'Нет постамата и нет выдачи на кассе'
@@ -42,8 +45,7 @@ function getMarkerInfo(id) {
 }
 
 function init() {
-    let myMap = new ymaps.Map("map", {
-        center: [51.5, 36],
+    myMap = new ymaps.Map("map", {
         zoom: 7,
         bounds: ymaps.util.bounds.fromPoints(coords)
     });
@@ -55,7 +57,22 @@ function init() {
         }, {
             preset: getMarkerColor(coords[i][2])
         });
-    
+
         myMap.geoObjects.add(myPlacemark)
+
+        if (coords[i][2] == "00") {
+            myPlacemark.options.set("visible", false)
+        }
     }
 }
+
+document.addEventListener("click", e => {
+    if (e.target && e.target.closest(".map")) {
+        // Получаем все точки, цвет которых совпадает с чек боксом
+        var result = ymaps.geoQuery(myMap.geoObjects)
+            .search('options.preset = "islands#' + e.target.id + '"')
+
+        // Прячем или показываем точки
+        result.setOptions('visible', e.target.checked);
+    }
+})

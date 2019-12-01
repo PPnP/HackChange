@@ -8,9 +8,9 @@
 {% block content %}
 <div id="map" style="width: 100vw; height: 100vh"></div>
 <ul class="map-legend">
-    <li><span style="color:red">Красный</span> - отсутствует постамат и выдача на кассе</li>
-    <li><span style="color:#ffd500">Желтый</span> - есть хотя бы постамат или выдача на кассе</li>
-    <li><span style="color:green">Зеленый</span> - рентабельно установить постамат</li>
-    <li><span style="color:blue">Синий</span> - рентабельно установить выдачу на кассе</li>
+    <li><input type="checkbox" id="redIcon" /><span style="color:red">Красный</span> - отсутствует постамат и выдача на кассе</li>
+    <li><input type="checkbox" id="yellowIcon" checked /><span style="color:#ffd500">Желтый</span> - уже есть хотя бы постамат или выдача на кассе</li>
+    <li><input type="checkbox" id="greenIcon" checked /><span style="color:green">Зеленый</span> - рентабельно установить постамат</li>
+    <li><input type="checkbox" id="blueIcon" checked /><span style="color:blue">Синий</span> - рентабельно установить выдачу на кассе</li>
 </ul>
 {% endblock content %}
