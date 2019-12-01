@@ -9,6 +9,5 @@ class DataController(MethodView):
         coords = list()
         for c in data.values():
             coords.append(c)
-        # print(coords)
         coords = json.dumps(coords)
         return coords
