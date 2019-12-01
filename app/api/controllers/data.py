@@ -20,7 +20,6 @@ class DataController(MethodView):
         coords = list()
         for c in data.values():
             coords.append(c)
+        coords = coords + postamats_coords + cashboxes_coords
         coords = json.dumps(coords)
-        postamats_coords = json.dumps(postamats_coords)
-        cashboxes_coords = json.dumps(cashboxes_coords)
-        return coords + postamats_coords + cashboxes_coords
+        return coords
