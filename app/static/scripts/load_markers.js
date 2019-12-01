@@ -19,9 +19,21 @@ function getMarkerColor(id) {
     } else if (id == "01") {
         return 'islands#blueIcon'
     } else if (id == "10") {
-        return 'islands#greenIcon'
-    } else if (id == "11") {
         return 'islands#yellowIcon'
+    } else if (id == "11") {
+        return 'islands#greenIcon'
+    }
+}
+
+function getMarkerInfo(id) {
+    if (id == "00") {
+        return 'Нет постамата и нет выдачи на кассе'
+    } else if (id == "01") {
+        return 'Нет постамата и есть выдача на кассе'
+    } else if (id == "10") {
+        return 'Есть постамат и нет выдачи на кассе'
+    } else if (id == "11") {
+        return 'Есть постамат и есть выдача на кассе'
     }
 }
 
@@ -32,7 +44,9 @@ function init() {
     });
 
     for (var i = 0; i < coords.length; i++) {
-        var myPlacemark = new ymaps.Placemark(coords[i], {}, {
+        var myPlacemark = new ymaps.Placemark(coords[i], {
+            hintContent: getMarkerInfo(coords[i][2])
+        }, {
             preset: getMarkerColor(coords[i][2])
         });
     
