@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hack&Change hackathon is waiting for us...</h1>
-    <a href="/map">Карта постаматов</a>
+<div class="hero">
+    <h1 class="hero__heading">"Название нашего<br>замечательного кейса"</h1>
+    <a href="/map" class="hero__button">Постаматы здесь</a>
+</div>
+<img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">
 {% endblock content %}
