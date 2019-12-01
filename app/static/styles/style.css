@@ -283,7 +283,7 @@ body {
 }
 
 .logo {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
     width: 200px
