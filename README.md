@@ -46,4 +46,4 @@
     python3 runner.py
     ```
 
-Developed by [PPnP](https://vk.com/pkryloff 'Project manager contact') team
+Developed by [PPnP](https://team.ppnp.me 'Team website') team
